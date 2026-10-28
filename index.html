@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="theme-color" content="#000000">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Grado – Noten-App fürs iPhone</title>
-<meta name="description" content="Grado rechnet deinen Notenschnitt aus – mit Gewichtung, mündlichen Noten und Notenziel. Kostenlos fürs iPhone.">
+<meta name="description" content="Grado rechnet deinen Notenschnitt aus – mit Gewichtung, mündlichen Noten und Notenziel. Kostenlos und ohne Werbung fürs iPhone.">
+<meta name="theme-color" content="#f6f3ee">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="fonts/geist-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -16,27 +16,112 @@
 <meta property="og:image" content="assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Nach der Freigabe einfügen: <meta name="apple-itunes-app" content="app-id=DEINE_ID"> -->
+<script>try{var t=localStorage.getItem('grado-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
+
+<header class="nav wrap">
+  <a class="brand" href="index.html" aria-label="Grado Startseite">
+    <svg viewBox="80 60 280 300" aria-hidden="true"><path d="M 263.3 117.6 A 106.6 106.6 0 1 0 316.6 210 L 221.5 210" fill="none" stroke="currentColor" stroke-width="43"/><circle cx="302" cy="157" r="16.4" fill="none" stroke="currentColor" stroke-width="8"/></svg>grado
+  </a>
+  <nav aria-label="Hauptmenü">
+    <a class="hide-s" href="#rechner">Notenrechner</a>
+    <a class="hide-s" href="#funktionen">Funktionen</a>
+    <a class="hide-s" href="#statistik">Statistik</a>
+    <!-- Nach der Freigabe: <span> durch <a class="cta" href="https://apps.apple.com/de/app/grado/idDEINE_ID">App laden</a> ersetzen -->
+    <span class="cta" aria-disabled="true">Bald verfügbar</span>
+  </nav>
+</header>
+
 <main>
-  <section class="wrap hero">
-    <svg class="mark in" viewBox="80 60 280 300" aria-hidden="true"><path d="M 263.3 117.6 A 106.6 106.6 0 1 0 316.6 210 L 221.5 210" fill="none" stroke="currentColor" stroke-width="43"/><circle cx="302" cy="157" r="16.4" fill="none" stroke="currentColor" stroke-width="8"/></svg>
-    <h1 class="name in d1">grado</h1>
-    <p class="line in d2">Dein Schnitt. Immer im Blick.</p>
-    <!-- Nach der Freigabe: <span> durch <a class="store in d3" href="https://apps.apple.com/de/app/grado/idDEINE_ID"> ersetzen und Text zu "Laden im App Store" ändern -->
-    <span class="store soon in d3" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.87-.76-1.47.02-2.83.86-3.59 2.18-1.54 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.24 2.73 2.2 1.1-.05 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.3-.88-2.32-3.5zM14.2 6.13c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.64-1.05 1.67-.92 2.66.97.07 1.96-.49 2.56-1.21z"/></svg>Bald im App Store</span>
-    <p class="free in d3">Kostenlos · Ohne Werbung · iPhone</p>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="chips" aria-hidden="true">
+      <div class="chip c1"><i style="--c:#ff9f0a"></i>Mathe<b>2,3</b><svg viewBox="0 0 48 16"><path d="M1 12 L9 9 L16 11 L24 6 L32 8 L40 3 L47 4"/></svg></div>
+      <div class="chip c2"><i style="--c:#30d158"></i>Bio<b>1,8</b><svg viewBox="0 0 48 16"><path d="M1 10 L8 12 L16 7 L24 8 L32 4 L40 5 L47 2"/></svg></div>
+      <div class="chip c3"><i style="--c:#0a84ff"></i>Englisch<b>3,0</b><svg viewBox="0 0 48 16"><path d="M1 6 L9 8 L16 5 L24 9 L32 7 L40 10 L47 8"/></svg></div>
+      <div class="chip c4"><i style="--c:#bf5af2"></i>Deutsch<b>2,5</b><svg viewBox="0 0 48 16"><path d="M1 11 L9 7 L16 9 L24 6 L32 9 L40 5 L47 6"/></svg></div>
+      <div class="chip c5"><i style="--c:#ff375f"></i>Physik<b>1,5</b><svg viewBox="0 0 48 16"><path d="M1 13 L9 11 L16 12 L24 7 L32 6 L40 3 L47 2"/></svg></div>
+      <div class="chip c6"><i style="--c:#64d2ff"></i>Geschichte<b>2,0</b><svg viewBox="0 0 48 16"><path d="M1 8 L9 6 L16 9 L24 5 L32 6 L40 4 L47 5"/></svg></div>
+    </div>
+
+    <div class="hero-copy wrap">
+      <p class="badge rv"><span class="pulse"></span>Gerade bei Apple in Prüfung</p>
+      <h1 class="rv d1">Dein Schnitt.<br><span>Immer im Blick.</span></h1>
+      <p class="sub rv d2">Die Noten-App mit Gewichtung, mündlichen Noten und Notenziel.</p>
+      <div class="actions rv d3">
+        <span class="store" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.87-.76-1.47.02-2.83.86-3.59 2.18-1.54 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.24 2.73 2.2 1.1-.05 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.3-.88-2.32-3.5zM14.2 6.13c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.64-1.05 1.67-.92 2.66.97.07 1.96-.49 2.56-1.21z"/></svg>Bald im App Store</span>
+        <span class="note">Kostenlos · Ohne Werbung</span>
+      </div>
+    </div>
+
+    <div class="hero-phone" id="heroPhone">
+      <div class="phone"><img src="assets/app-uebersicht.webp" width="690" height="1500" alt="Grado: Gesamtdurchschnitt 3,88 und Fächerübersicht"></div>
+    </div>
   </section>
 
-  <section class="wrap shot" aria-label="So sieht Grado aus">
-    <div class="phone"><img src="screen.webp" width="690" height="1000" alt="Grado zeigt den Gesamtdurchschnitt und die Noten pro Fach" loading="lazy"></div>
+  <!-- NOTENRECHNER -->
+  <section class="band lime" id="rechner">
+    <div class="wrap trio">
+      <h2 class="rv">Welche Note brauchst du&nbsp;noch?</h2>
+      <div class="stage rv d1">
+        <div class="phone sm"><img src="assets/app-rechner.webp" width="690" height="1500" loading="lazy" alt="Grado Notenrechner: Ziel-Durchschnitt 2, benötigte Note 1"></div>
+        <div class="tag t1" aria-hidden="true"><small>Ziel</small>2,0</div>
+        <div class="tag t2" aria-hidden="true"><small>Benötigt</small>1</div>
+      </div>
+      <p class="side rv d2">Stell dein Ziel ein, Grado rechnet aus, was du in der nächsten Arbeit schreiben musst. Mit Gewichtung und mündlichen Noten.</p>
+    </div>
   </section>
 
-  <ul class="wrap points" aria-label="Funktionen">
-    <li><b>Gewichtung</b><span>Pro Fach einstellbar</span></li>
-    <li><b>Noten &amp; Punkte</b><span>1–6 oder 0–15</span></li>
-    <li><b>Nur auf deinem iPhone</b><span>Kein Konto, kein Tracking</span></li>
-  </ul>
+  <!-- FUNKTIONEN -->
+  <section class="band" id="funktionen">
+    <div class="wrap">
+      <h2 class="center rv">Gebaut für die Schule.</h2>
+      <div class="cards">
+        <article class="card rv">
+          <div class="viz weight" aria-hidden="true"><span style="flex:60">Schriftlich 60&nbsp;%</span><span style="flex:40">Mündlich 40&nbsp;%</span></div>
+          <h3>Gewichtung</h3>
+          <p>50/50, 60/40, 67/33 oder 70/30 – pro Fach.</p>
+        </article>
+        <article class="card rv d1">
+          <div class="viz toggle" aria-hidden="true"><span class="on">1–6</span><span>0–15</span></div>
+          <h3>Noten &amp; Punkte</h3>
+          <p>Schulnoten oder Punkte für die Oberstufe.</p>
+        </article>
+        <article class="card rv d2">
+          <div class="viz lock" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <h3>Nur auf deinem iPhone</h3>
+          <p>Kein Konto, kein Tracking, keine Werbung.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATISTIK -->
+  <section class="band dark" id="statistik">
+    <div class="wrap duo">
+      <div class="rv">
+        <h2>Sieh, wohin's&nbsp;geht.</h2>
+        <p class="side">Verlauf und Trend für jedes Fach – damit dich das Zeugnis nicht überrascht.</p>
+      </div>
+      <div class="stage rv d1">
+        <div class="phone sm tilt"><img src="assets/app-statistik.webp" width="690" height="1500" loading="lazy" alt="Grado Statistik: Verlauf und Trend"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="band end">
+    <div class="wrap center">
+      <svg class="mark rv" viewBox="80 60 280 300" aria-hidden="true"><path d="M 263.3 117.6 A 106.6 106.6 0 1 0 316.6 210 L 221.5 210" fill="none" stroke="currentColor" stroke-width="43"/><circle cx="302" cy="157" r="16.4" fill="none" stroke="currentColor" stroke-width="8"/></svg>
+      <h2 class="rv d1">Bald im App&nbsp;Store.</h2>
+      <p class="side rv d2">Folg uns, damit du den Release nicht verpasst.</p>
+      <div class="actions rv d3">
+        <a class="store" href="https://www.tiktok.com/@grado.app0" target="_blank" rel="noopener">TikTok</a>
+        <a class="store ghost" href="https://www.instagram.com/grado_app" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -45,10 +130,23 @@
     <nav aria-label="Rechtliches">
       <a href="datenschutz.html">Datenschutz</a>
       <a href="impressum.html">Impressum</a>
-      <a href="https://www.tiktok.com/@grado.app0" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://www.instagram.com/grado_app" target="_blank" rel="noopener">Instagram</a>
+      <button class="theme" id="theme" type="button" aria-label="Hell/Dunkel umschalten"><span></span></button>
     </nav>
   </div>
 </footer>
+
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  btn.addEventListener('click',function(){var d=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=d;try{localStorage.setItem('grado-theme',d)}catch(e){}});
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on')})}
+  var p=document.getElementById('heroPhone');
+  if(!reduce&&p){var f=function(){var y=Math.min(window.scrollY,600);p.style.setProperty('--rise',(y*-.35)+'px')};window.addEventListener('scroll',f,{passive:true});f()}
+})();
+</script>
 </body>
 </html>
