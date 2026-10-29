@@ -147,6 +147,10 @@ footer a{text-decoration:none;padding-block:6px}footer a:hover{color:var(--fg)}
   .phone{width:250px}.phone.sm{width:230px}
   .hero-phone{margin-bottom:-200px}
   .hero{padding-top:104px}
+  /* Auf schmalen Screens ist neben dem Phone-Mockup kein Platz mehr für die
+     schwebenden Ziel/Benötigt-Badges, sonst überlappen sie den Notenverlauf. */
+  .stage{flex-wrap:wrap;row-gap:16px;align-items:center}
+  .tag{position:static;animation:none}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
