@@ -20,6 +20,8 @@
 </head>
 <body>
 
+<p class="iab" id="iabBanner">Du bist gerade im In-App-Browser. Tipp oben rechts auf <b>•••</b> und wähle <b>"Im Browser öffnen"</b>, damit der App-Store-Link funktioniert.</p>
+
 <header class="nav wrap">
   <a class="brand" href="index.html" aria-label="Grado Startseite">
     <svg viewBox="80 60 280 300" aria-hidden="true"><path d="M 263.3 117.6 A 106.6 106.6 0 1 0 316.6 210 L 221.5 210" fill="none" stroke="currentColor" stroke-width="43"/><circle cx="302" cy="157" r="16.4" fill="none" stroke="currentColor" stroke-width="8"/></svg>grado
@@ -138,6 +140,13 @@
 </footer>
 
 <script>
+(function(){
+  var ua=navigator.userAgent||"";
+  if(/musical_ly|tiktok|bytedance|instagram|FBAN|FBAV|Snapchat|Line\//i.test(ua)){
+    var banner=document.getElementById('iabBanner');
+    if(banner)banner.classList.add('show');
+  }
+})();
 (function(){
   var root=document.documentElement,btn=document.getElementById('theme');
   btn.addEventListener('click',function(){var d=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=d;try{localStorage.setItem('grado-theme',d)}catch(e){}});
